@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<!--
+/*
+ * JavaScript Templates Demo
+ * https://github.com/blueimp/JavaScript-Templates
+ *
+ * Copyright 2011, Sebastian Tschan
+ * https://blueimp.net
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>JavaScript Templates Demo V2</title>
+<link rel="stylesheet" href="./demo.css">
+</head>
+<body>
+<form>
+    <h2>Template V2</h2>
+    <textarea rows="12" id="template"></textarea>
+    <br>
+    <h2>Data (JSON)</h2>
+    <textarea rows="14" id="data"></textarea>
+    <br>
+    <button type="submit" id="render">Render</button>
+    <button type="reset" id="reset">Reset</button>
+    <h2>Result</h2>
+    <div id="result" class="result"></div>
+    <br>
+</form>
+<script type="text/x-tmpl" id="tmpl-demo">
+<h3>{%=this.title%}</h3>
+<p>Released under the
+<a href="{%=o.license.url%}">{%=o.license.name%}</a>.</p>
+<h4>Features</h4>
+<ul>
+{% for (var i=0; i<o.features.length; i++) { %}
+    <li>{%=o.features[i]%}</li>
+{% } %}
+</ul>
+</script>
+<script type="text/x-tmpl" id="tmpl-data">
+{
+    "title": "JavaScript Templates",
+    "license": {
+        "name": "MIT license",
+        "url": "http://www.opensource.org/licenses/MIT"
+    },
+    "features": [
+        "lightweight & fast",
+        "powerful",
+        "zero dependencies"
+    ]
+}
+</script>
+<script type="text/x-tmpl" id="tmpl-error">
+<h3 class="error">{%=o.title%}</h3>
+<code>{%=o.error%}</code>
+</script>
+<script src="./tmpl.js"></script>
+<script src="./demo.js"></script>
+</body>
+</html>
